@@ -6,13 +6,13 @@ interface CanvaboxProps {}
 
 const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
   (props, ref) => {
-    const[dimension,setdimension] = useState({width:360,height:360})
+    const[dimension,setdimension] = useState({width:600,height:360})
     const dragInfo = useRef({
       isResizing:false,
       direction:"",
       startX: 0,
       startY: 0,
-      startWidth: 360,
+      startWidth: 600,
       startHeight:360,
     })
     const handleMouseDown = (
@@ -71,22 +71,34 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
             height: `${dimension.height}px`,
           }}
         >
+          <div className="absolute top-0 left-0 w-full px-4 py-2 flex items-center justify-between bg-[#2c2c2e] border-b border-[#3a3a3c] z-10 rounded-t-xl">
+            <div className="flex gap-2 items-center">
+              <span className="w-3 h-3 rounded-full bg-red-500" />
+              <span className="w-3 h-3 rounded-full bg-yellow-400" />
+              <span className="w-3 h-3 rounded-full bg-green-500" />
+            </div>
+            <div className="flex justify-center items-center w-full">
+              <input
+                type="text"
+                defaultValue="Code Editor"
+                className="text-xs text-gray-400 font-semibold tracking-wide bg-transparent focus:outline-none text-center"
+              />
+            </div>
+            <div className="w-12" /> {/* For symmetry */}
+          </div>
           <textarea
-            className="w-full h-full bg-transparent text-white font-mono text-sm resize-none outline-none placeholder-gray-500 overflow-auto"
-            placeholder="// Paste your code here..."
+            className="absolute top-8 bottom-0 left-0 right-0 bg-transparent text-white font-mono text-sm resize-none outline-none placeholder-gray-500 p-4 overflow-auto"
+            placeholder='print("Hello world")'
           />
           <div
-          onMouseDown={(e) => handleMouseDown("right", e)}
-          className="absolute right-0 inset-y-0 w-2 cursor-ew-resize bg-white/10 rounded-r-md
+            onMouseDown={(e) => handleMouseDown("right", e)}
+            className="absolute right-0 inset-y-0 w-2 cursor-ew-resize bg-white/10 rounded-r-md
                     opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-        >
-          </div>
-
+          ></div>
           <div
             onMouseDown={(e) => handleMouseDown("bottom", e)}
             className="absolute bottom-0 inset-x-0 h-2 cursor-ns-resize group"
-          >
-          </div>
+          ></div>
         </div>
       </div>
     );

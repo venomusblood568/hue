@@ -1,4 +1,4 @@
-import DarkIcon from "../icon/dark";
+
 import GlimIcon from "../icon/glimicon";
 
 export default function Leftsidebar() {
