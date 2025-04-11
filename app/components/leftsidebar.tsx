@@ -8,6 +8,8 @@ export default function Leftsidebar() {
         <a className="font-bold text-white text-3xl tracking-wide hover:text-gray-600">
           GLIM
         </a>
+        <hr className="my-4 border-0 h-[1px] bg-[#3f3f46] shadow-[0_0_10px_#6366f1]" />
+        
       </div>
     </div>
   );
