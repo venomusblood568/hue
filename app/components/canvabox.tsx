@@ -76,13 +76,17 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
             placeholder="// Paste your code here..."
           />
           <div
-            onMouseDown={(e) => handleMouseDown("right", e)}
-            className="absolute right-0 top-0 bottom-0 w-1 cursor-ew-resize bg-transparent hover:bg-gray-400/50 transition-colors duration-200 rounded-2xl"
-          ></div>
+          onMouseDown={(e) => handleMouseDown("right", e)}
+          className="absolute right-0 inset-y-0 w-2 cursor-ew-resize bg-white/10 rounded-r-md
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        >
+          </div>
+
           <div
             onMouseDown={(e) => handleMouseDown("bottom", e)}
-            className="absolute bottom-0 left-0 w-full h-1 cursor-ns-resize bg-transparent hover:bg-gray-400/50 transition-colors duration-200 rounded-2xl"
-          ></div>
+            className="absolute bottom-0 inset-x-0 h-2 cursor-ns-resize group"
+          >
+          </div>
         </div>
       </div>
     );
