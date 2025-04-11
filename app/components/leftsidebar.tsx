@@ -1,3 +1,6 @@
+import DarkIcon from "../icon/dark";
+import GlimIcon from "../icon/glimicon";
+
 export default function Leftsidebar() {
   return (
     <div>
@@ -5,11 +8,21 @@ export default function Leftsidebar() {
         className="w-52 bg-[#151414] text-white p-4  shadow-lg overflow-y-auto rounded-2xl"
         style={{ height: "calc(100vh - 1rem)", margin: "0.5rem" }}
       >
-        <a className="font-bold text-white text-3xl tracking-wide hover:text-gray-600">
-          GLIM
-        </a>
-        <hr className="my-4 border-0 h-[1px] bg-[#3f3f46] shadow-[0_0_10px_#6366f1]" />
-        
+        <div className="flex items-center justify-center w-full px-6 py-3 bg-[#1e1e1e] rounded-2xl shadow-md">
+          <div className="flex items-center gap-2">
+            <button
+              className="text-white hover:text-indigo-400 bg-[#2a2a2a] p-2 rounded-xl transition duration-300 shadow hover:shadow-indigo-500/20"
+              aria-label="Glim Icon"
+            >
+              <GlimIcon />
+            </button>
+
+            <span className="font-bold text-white text-3xl select-none tracking-wider">
+              GLIM
+            </span>
+          </div>
+        </div>
+        <hr className="my-4 border-0 h-[1px] bg-[#3f3f46] shadow-[0_0_8px_#6366f1]" />
       </div>
     </div>
   );
