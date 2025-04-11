@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Glim",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,6 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/icons/glimicon.svg" type="image/svg+xml" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
