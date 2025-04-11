@@ -54,8 +54,8 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
       window.addEventListener("mousemove",handleMouseMove);
       window.addEventListener("mouseup",handleMouseUp);
       return() => {
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseup", handleMouseUp);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("mouseup", handleMouseUp);
       }
     },[])
     return (
