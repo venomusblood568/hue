@@ -3,6 +3,7 @@ import HueIcon from "../icon/hueicon";
 
 interface leftsideProp{
   onThemeChange:(theme:string) => void
+  theme:string;
 }
 
 const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
@@ -38,13 +39,17 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
           <select
             id="theme"
             onChange={handleThemeChange}
-            className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+            className="w-full gap-2 bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
           >
-            <option value="default">Default</option>
+            <option value="default">Default Theme</option>
+            <option value="orange">Orange</option>
+            <option value="betterblack">Better Black</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
             <option value="react">React</option>
-            <option value="node">Node.js</option>
-            <option value="tailwind">Tailwind CSS</option>
-            <option value="typescript">TypeScript</option>
+            <option value="rimless">Rimless</option>
+            <option value="blue">Blue</option>
+
           </select>
         </div>
         {/* Tech Stack Dropdown */}
