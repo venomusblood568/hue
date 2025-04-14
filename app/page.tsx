@@ -1,12 +1,14 @@
 "use client"
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import Canvabox from "./components/canvabox";
 import Leftsidebar from "./components/leftsidebar";
 import RightSidebar from "./components/rightsidebar";
 import { toPng } from "html-to-image";
+import { editorTheme } from "./components/theme";
 
 export default function Home() {
   const canvaboxRef = useRef<HTMLDivElement>(null)
+  const [theme,setTheme] = useState<keyof typeof editorTheme>("default");
   const handleExport = useCallback(async () => {
     if(!canvaboxRef.current) return;
     try {
@@ -26,8 +28,8 @@ export default function Home() {
   },[])
   return (
     <div className="flex h-screen overflow-hidden">
-      <Leftsidebar />
-      <Canvabox ref={canvaboxRef}/>
+      <Leftsidebar onThemeChange ={setTheme}/>
+      <Canvabox ref={canvaboxRef} theme={theme}/>
       <RightSidebar onExport={handleExport} />
     </div>
   );

@@ -1,10 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
+import { editorTheme } from "./theme";
 
-interface CanvaboxProps {}
+interface CanvaboxProps {
+  // If provided, it must be one of the keys in editorThemes
+  theme?: keyof typeof editorTheme;
+}
 
-const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
-  (props, ref) => {
+const Canvabox = React.memo(
+  React.forwardRef<HTMLDivElement, CanvaboxProps>(
+  ({theme="default"}, ref) => {
     const[dimension,setdimension] = useState({width:600,height:360})
+    const currentTheme = editorTheme[theme] || editorTheme.default;
     const dragInfo = useRef({
       isResizing:false,
       direction:"",
@@ -63,13 +69,25 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
       >
         <div
           ref={ref}
-          className="relative rounded-xl bg-[#2c2c2e] p-4 flex items-center justify-center"
+          className="relative rounded-xl  p-4 flex items-center justify-center"
           style={{
             width: `${dimension.width}px`,
             height: `${dimension.height}px`,
+            backgroundColor: currentTheme.bg,
+            color: currentTheme.text,
+            border: `${currentTheme.borderThickness} solid ${currentTheme.border}`,
+            borderRadius: currentTheme.borderRadius,
           }}
         >
-          <div className="absolute top-0 left-0 w-full px-4 py-2 flex items-center justify-between bg-[#2c2c2e] border-b border-[#3a3a3c] z-10 rounded-t-xl">
+          <div
+            style={{
+              backgroundColor: currentTheme.bg,
+              color: currentTheme.text,
+              border: `${currentTheme.borderThickness} solid ${currentTheme.border}`,
+              borderRadius: currentTheme.borderRadius,
+            }}
+            className="absolute top-0 left-0 w-full px-4 py-2 flex items-center justify-between  z-10 rounded-t-xl"
+          >
             <div className="flex gap-2 items-center">
               <span className="w-3 h-3 rounded-full bg-red-500" />
               <span className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -80,6 +98,7 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
                 type="text"
                 defaultValue="Code Editor"
                 className="text-xs text-gray-400 font-semibold tracking-wide bg-transparent focus:outline-none text-center"
+                style={{ color: currentTheme.text }}
               />
             </div>
             <div className="w-12" /> {/* For symmetry */}
@@ -87,6 +106,10 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
           <textarea
             className="absolute top-8 bottom-0 left-0 right-0 bg-transparent text-white font-mono text-sm resize-none outline-none placeholder-gray-500 p-4 overflow-auto"
             placeholder='print("Hello world")'
+            style={{
+              backgroundColor: "transparent",
+              color: currentTheme.text,
+            }}
           />
           <div
             onMouseDown={(e) => handleMouseDown("right", e)}
@@ -100,7 +123,7 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
         </div>
       </div>
     );
-  }
+  })
 );
 
 Canvabox.displayName = "Canvabox"; 

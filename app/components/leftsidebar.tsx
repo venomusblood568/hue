@@ -1,6 +1,10 @@
 import HueIcon from "../icon/hueicon";
 
-export default function Leftsidebar() {
+interface leftsideProp{
+  onThemeChange:(theme:string) => void
+}
+
+export default function Leftsidebar({ onThemeChange }: LeftsideProp) {
   return (
     <div>
       <div
@@ -23,6 +27,19 @@ export default function Leftsidebar() {
           </div>
         </div>
 
+        <div className="w-full">
+          <select
+            id="theme"
+            onClick={(e) => onThemeChange(e.target.value)}
+            className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+          >
+            <option value="default">Default</option>
+            <option value="react">React</option>
+            <option value="node">Node.js</option>
+            <option value="tailwind">Tailwind CSS</option>
+            <option value="typescript">TypeScript</option>
+          </select>
+        </div>
         {/* Tech Stack Dropdown */}
         <div className="w-full">
           <label
@@ -32,7 +49,6 @@ export default function Leftsidebar() {
           <select
             id="techstack"
             className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
-            
           >
             <option value="">Language</option>
             <option value="react">React</option>
