@@ -1,10 +1,17 @@
+import React, { useCallback } from "react";
 import HueIcon from "../icon/hueicon";
 
 interface leftsideProp{
   onThemeChange:(theme:string) => void
 }
 
-export default function Leftsidebar({ onThemeChange }: LeftsideProp) {
+const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
+  const handleThemeChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      onThemeChange(e.target.value); // Trigger the theme change on parent
+    },
+    [onThemeChange] // Dependency array ensures that this callback will update only when `onThemeChange` changes
+  );
   return (
     <div>
       <div
@@ -30,7 +37,7 @@ export default function Leftsidebar({ onThemeChange }: LeftsideProp) {
         <div className="w-full">
           <select
             id="theme"
-            onClick={(e) => onThemeChange(e.target.value)}
+            onChange={handleThemeChange}
             className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
           >
             <option value="default">Default</option>
@@ -63,4 +70,7 @@ export default function Leftsidebar({ onThemeChange }: LeftsideProp) {
       </div>
     </div>
   );
-}
+});
+
+Leftsidebar.displayName = "Leftsidebar";
+export default Leftsidebar
