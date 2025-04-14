@@ -1,4 +1,4 @@
-export default function GlimIcon(){
+export default function HueIcon(){
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"

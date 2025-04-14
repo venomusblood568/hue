@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Glim",
-  description: "Glim",
+  title: "Hue",
+  description: "Hue",
 };
 
 

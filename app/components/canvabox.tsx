@@ -1,6 +1,4 @@
-
 import React, { useEffect, useRef, useState } from "react";
-
 
 interface CanvaboxProps {}
 
@@ -105,6 +103,6 @@ const Canvabox = React.forwardRef<HTMLDivElement, CanvaboxProps>(
   }
 );
 
-Canvabox.displayName = "Canvabox"; // For better debugging in React DevTools
+Canvabox.displayName = "Canvabox"; 
 
 export default Canvabox;
