@@ -1,19 +1,20 @@
 import React, { useCallback } from "react";
 import HueIcon from "../icon/hueicon";
 
-
-interface leftsideProp{
-  onThemeChange:(theme:string) => void
-  theme:string;
+interface leftsideProp {
+  onThemeChange: (theme: string) => void;
+  theme: string;
+  onExport: () => void;
 }
 
-const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
+const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
   const handleThemeChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      onThemeChange(e.target.value); // Trigger the theme change on parent
+      onThemeChange(e.target.value);
     },
-    [onThemeChange] // Dependency array ensures that this callback will update only when `onThemeChange` changes
+    [onThemeChange]
   );
+
   return (
     <div>
       <div
@@ -29,38 +30,51 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
             >
               <HueIcon />
             </button>
-
             <span className="font-bold text-white text-3xl select-none tracking-wider">
               HUE
             </span>
           </div>
         </div>
-        {/* Theme Dropdown*/}
-        <div className="w-full">
+
+        {/* Theme Dropdown */}
+        <div className="mb-4">
           <select
             id="theme"
             onChange={handleThemeChange}
-            className="w-full gap-2 bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+            className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
           >
-            <option value="default">Default Theme</option>
-            <option value="orange">Orange</option>
-            <option value="betterblack">Better Black</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="react">React</option>
-            <option value="rimless">Rimless</option>
-            <option value="blue">Blue</option>
+            <option value="default" className="bg-[#3a3a3a]">
+              Default Theme
+            </option>
+            <option value="orange" className="bg-[#3a3a3a]">
+              Orange
+            </option>
+            <option value="betterblack" className="bg-[#3a3a3a]">
+              Better Black
+            </option>
+            <option value="black" className="bg-[#3a3a3a]">
+              Black
+            </option>
+            <option value="white" className="bg-[#3a3a3a]">
+              White
+            </option>
+            <option value="react" className="bg-[#3a3a3a]">
+              React
+            </option>
+            <option value="rimless" className="bg-[#3a3a3a]">
+              Rimless
+            </option>
+            <option value="blue" className="bg-[#3a3a3a]">
+              Blue
+            </option>
           </select>
         </div>
+
         {/* Tech Stack Dropdown */}
-        <div className="w-full">
-          <label
-            htmlFor="techstack"
-            className="block text-sm font-medium text-gray-300 mb-2"
-          ></label>
+        <div className="mb-4">
           <select
             id="techstack"
-            className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+            className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
           >
             <option value="">Language</option>
             <option value="react">React</option>
@@ -72,27 +86,34 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
             <option value="typescript">TypeScript</option>
           </select>
         </div>
+
         {/* Dimension Dropdown */}
-        <div className="w-full">
-          <label
-            htmlFor="dimension"
-            className="block text-sm font-medium text-gray-300 mb-2"
-          ></label>
+        <div className="mb-4">
           <select
             id="dimension"
-            className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+            className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
           >
             <option value="">Default</option>
-            <option value="">16:9 (1920 * 1080)</option>
-            <option value="react">3:2 (1920 * 1280)</option>
-            <option value="nextjs">4:3 (1920 * 1440)</option>
-            <option value="node">5:4 (1920 * 1536)</option>
-            <option value="mongo">1:1 (1920 * 1920)</option>
-            <option value="tailwind">4:5 (1080 * 1350)</option>
-            <option value="express">3:4 (1080 * 1440)</option>
-            <option value="typescript">2:3 (1080 * 1620)</option>
-            <option value="typescript">9:16 (1080 * 1920)</option>
+            <option value="16:9">16:9 (1920×1080)</option>
+            <option value="3:2">3:2 (1920×1280)</option>
+            <option value="4:3">4:3 (1920×1440)</option>
+            <option value="5:4">5:4 (1920×1536)</option>
+            <option value="1:1">1:1 (1920×1920)</option>
+            <option value="4:5">4:5 (1080×1350)</option>
+            <option value="3:4">3:4 (1080×1440)</option>
+            <option value="2:3">2:3 (1080×1620)</option>
+            <option value="9:16">9:16 (1080×1920)</option>
           </select>
+        </div>
+
+        {/* Export Button */}
+        <div className="mt-auto">
+          <button
+            onClick={onExport}
+            className="flex items-center justify-center w-full px-6 py-3 bg-[#1e1e1e] rounded-xl shadow-md cursor-pointer hover:bg-[#616060]"
+          >
+            Export
+          </button>
         </div>
       </div>
     </div>
@@ -100,4 +121,4 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
 });
 
 Leftsidebar.displayName = "Leftsidebar";
-export default Leftsidebar
+export default Leftsidebar;

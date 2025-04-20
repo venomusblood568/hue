@@ -2,7 +2,6 @@
 import { useCallback, useRef, useState } from "react";
 import Canvabox from "./components/canvabox";
 import Leftsidebar from "./components/leftsidebar";
-import RightSidebar from "./components/rightsidebar";
 import { toPng } from "html-to-image";
 import { editorTheme } from "./components/theme";
 
@@ -28,9 +27,8 @@ export default function Home() {
   },[])
   return (
     <div className="flex h-screen overflow-hidden">
-      <Leftsidebar onThemeChange ={setTheme}/>
-      <Canvabox ref={canvaboxRef} theme={theme}/>
-      <RightSidebar onExport={handleExport} />
+      <Leftsidebar onThemeChange={setTheme} onExport={handleExport} />
+      <Canvabox ref={canvaboxRef} theme={theme} />
     </div>
   );
 }
