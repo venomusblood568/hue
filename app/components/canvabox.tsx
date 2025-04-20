@@ -103,7 +103,7 @@ const Canvabox = React.memo(
             <div className="flex justify-center items-center w-full">
               <input
                 type="text"
-                defaultValue="Code Editor"
+                defaultValue="Hue Editor"
                 className="text-xs text-gray-400 font-semibold tracking-wide bg-transparent focus:outline-none text-center"
                 style={{ color: currentTheme.text }}
               />

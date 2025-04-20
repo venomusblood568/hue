@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import HueIcon from "../icon/hueicon";
 
+
 interface leftsideProp{
   onThemeChange:(theme:string) => void
   theme:string;
@@ -34,7 +35,7 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
             </span>
           </div>
         </div>
-
+        {/* Theme Dropdown*/}
         <div className="w-full">
           <select
             id="theme"
@@ -49,7 +50,6 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
             <option value="react">React</option>
             <option value="rimless">Rimless</option>
             <option value="blue">Blue</option>
-
           </select>
         </div>
         {/* Tech Stack Dropdown */}
@@ -70,6 +70,28 @@ const Leftsidebar = React.memo(({ onThemeChange }: leftsideProp) => {
             <option value="tailwind">Tailwind CSS</option>
             <option value="express">Express</option>
             <option value="typescript">TypeScript</option>
+          </select>
+        </div>
+        {/* Dimension Dropdown */}
+        <div className="w-full">
+          <label
+            htmlFor="dimension"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          ></label>
+          <select
+            id="dimension"
+            className="w-full bg-[#2a2a2a] text-white p-3 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#616060]"
+          >
+            <option value="">Default</option>
+            <option value="">16:9 (1920 * 1080)</option>
+            <option value="react">3:2 (1920 * 1280)</option>
+            <option value="nextjs">4:3 (1920 * 1440)</option>
+            <option value="node">5:4 (1920 * 1536)</option>
+            <option value="mongo">1:1 (1920 * 1920)</option>
+            <option value="tailwind">4:5 (1080 * 1350)</option>
+            <option value="express">3:4 (1080 * 1440)</option>
+            <option value="typescript">2:3 (1080 * 1620)</option>
+            <option value="typescript">9:16 (1080 * 1920)</option>
           </select>
         </div>
       </div>
