@@ -40,20 +40,12 @@ export const editorTheme = {
     borderRadius: "16px",
   },
   rimless: {
-    bg: "#0f1117", // deep twilight
-    border: "#00ffff", // neon cyan
-    text: "#ffffff", // crisp white
-    placeholder: "#6ee7b7", // minty fresh
+    bg: "#0f1117",
+    border: "#00ffff",
+    text: "#ffffff",
+    placeholder: "#6ee7b7",
     borderThickness: "0px",
     borderRadius: "16px",
-  },
-  blue: {
-    bg: "#0000ff", // Midnight galaxy
-    border: "#38bdf8",
-    text: "#e0f2fe",
-    placeholder: "#7dd3fc",
-    borderThickness: "2px",
-    borderRadius: "14px",
   },
   betterblack: {
     bg: "black",
@@ -78,5 +70,21 @@ export const editorTheme = {
     placeholder: "#ffb6c1",
     borderThickness: "2px",
     borderRadius: "12px",
+  },
+  royallink: {
+    bg: "#1e1b3a",
+    border: "#635bff",
+    text: "#ffffff",
+    placeholder: "#a1a1ff",
+    borderThickness: "1px",
+    borderRadius: "10px",
+  },
+  terminal: {
+    bg: "#000000",
+    border: "#00ff00",
+    text: "#00ff00",
+    placeholder: "#33ff33",
+    borderThickness: "1px",
+    borderRadius: "8px",
   },
 };

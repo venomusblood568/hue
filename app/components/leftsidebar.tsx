@@ -64,14 +64,17 @@ const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
             <option value="rimless" className="bg-[#3a3a3a]">
               Rimless
             </option>
-            <option value="blue" className="bg-[#3a3a3a]">
-              Blue
-            </option>
             <option value="cyberNeon" className="bg-[#3a3a3a]">
               cyber Neo
             </option>
             <option value="sakuraPink" className="bg-[#3a3a3a]">
-              sakura Pink
+              Sakura Pink
+            </option>
+            <option value="royallink" className="bg-[#3a3a3a]">
+              Royal Link
+            </option>
+            <option value="terminal" className="bg-[#3a3a3a]">
+              Terminal
             </option>
           </select>
         </div>
