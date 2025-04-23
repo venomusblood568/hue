@@ -48,41 +48,35 @@ export const editorTheme = {
     borderRadius: "16px",
   },
   blue: {
-    bg: "#0f172a", // Midnight galaxy
+    bg: "#0000ff", // Midnight galaxy
     border: "#38bdf8",
     text: "#e0f2fe",
     placeholder: "#7dd3fc",
-    decor: `
-      box-shadow: 0 4px 30px rgba(56, 189, 248, 0.15);
-      background-image: 
-        linear-gradient(30deg, #0f172a 0%, #1e293b 100%),
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 25px,
-          #38bdf811 25px,
-          #38bdf811 50px
-        );
-      background-blend-mode: multiply;
-      &::after {
-        content: '✦';
-        position: absolute;
-        right: 12px;
-        bottom: 8px;
-        color: #38bdf844;
-        font-size: 1.5rem;
-      }
-    `,
-    borderThickness: "1px",
+    borderThickness: "2px",
     borderRadius: "14px",
-    animation: "sparkle 4s infinite",
   },
   betterblack: {
-    bg: "linear-gradient(195deg, #2c2c2e 0%, #1f1f21 100%)",
+    bg: "black",
     border: "#3a3a3c",
     text: "#f0f0f0",
     placeholder: "#6b7280",
     borderThickness: "1px",
+    borderRadius: "12px",
+  },
+  cyberNeon: {
+    bg: "#184c87",
+    border: "#2730cf",
+    text: "#00ffe1",
+    placeholder: "#5effe3",
+    borderThickness: "2px",
+    borderRadius: "14px",
+  },
+  sakuraPink: {
+    bg: "#ffd1df",
+    border: "#ff85a2",
+    text: "black",
+    placeholder: "#ffb6c1",
+    borderThickness: "2px",
     borderRadius: "12px",
   },
 };
