@@ -1,3 +1,16 @@
+export type ThemeType =
+  | "default"
+  | "white"
+  | "black"
+  | "orange"
+  | "react"
+  | "rimless"
+  | "betterblack"
+  | "cyberNeon"
+  | "sakuraPink"
+  | "royallink"
+  | "terminal";
+
 export const editorTheme = {
   default: {
     bg: "#2c2c2e",
