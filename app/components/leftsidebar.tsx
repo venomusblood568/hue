@@ -18,7 +18,7 @@ const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
   return (
     <div>
       <div
-        className="w-52 bg-[#151414] text-white p-4 shadow-lg overflow-y-auto rounded-2xl"
+        className="w-56 bg-[#151414] text-white p-4 shadow-lg overflow-y-auto rounded-2xl"
         style={{ height: "calc(100vh - 1rem)", margin: "0.5rem" }}
       >
         {/* Header */}
@@ -85,14 +85,14 @@ const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
             id="techstack"
             className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
           >
-            <option value="">Language</option>
-            <option value="react">React</option>
-            <option value="nextjs">Next.js</option>
-            <option value="node">Node.js</option>
-            <option value="mongo">MongoDB</option>
-            <option value="tailwind">Tailwind CSS</option>
-            <option value="express">Express</option>
+            <option value="">Auto-Detect</option>
             <option value="typescript">TypeScript</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="c">C</option>
+            <option value="c++">C++</option>
+            
           </select>
         </div>
 

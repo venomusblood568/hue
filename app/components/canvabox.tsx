@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { editorTheme } from "./theme";
 
 interface CanvaboxProps {
-
   theme?: keyof typeof editorTheme;
 }
 
