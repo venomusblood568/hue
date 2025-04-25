@@ -5,16 +5,22 @@ interface leftsideProp {
   onThemeChange: (theme: string) => void;
   theme: string;
   onExport: () => void;
+  onTechStackChange: (techStack:string) => void 
 }
 
-const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
+const Leftsidebar = React.memo(({ onThemeChange, onExport, onTechStackChange }: leftsideProp) => {
   const handleThemeChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       onThemeChange(e.target.value);
     },
     [onThemeChange]
   );
-
+  const handleTechStackChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      onTechStackChange(e.target.value);
+    },
+    [onTechStackChange]
+  )
   return (
     <div>
       <div
@@ -83,6 +89,7 @@ const Leftsidebar = React.memo(({ onThemeChange, onExport }: leftsideProp) => {
         <div className="mb-4">
           <select
             id="techstack"
+            onChange={handleTechStackChange}
             className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
           >
             <option value="">Auto-Detect</option>

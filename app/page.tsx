@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useCallback, useRef, useState } from "react";
 import Canvabox from "./components/canvabox";
 import Leftsidebar from "./components/leftsidebar";
@@ -6,10 +6,11 @@ import { toPng } from "html-to-image";
 import { editorTheme } from "./components/theme";
 
 export default function Home() {
-  const canvaboxRef = useRef<HTMLDivElement>(null)
-  const [theme,setTheme] = useState<keyof typeof editorTheme>("default");
+  const canvaboxRef = useRef<HTMLDivElement>(null);
+  const [theme, setTheme] = useState<keyof typeof editorTheme>("default");
+  const [techstack, setTechStack] = useState("");
   const handleExport = useCallback(async () => {
-    if(!canvaboxRef.current) return;
+    if (!canvaboxRef.current) return;
     try {
       const dataUrl = await toPng(canvaboxRef.current, {
         quality: 1,
@@ -18,17 +19,26 @@ export default function Home() {
       });
 
       const link = document.createElement("a");
-      link.download = 'glim-snipped.png'
+      link.download = "glim-snipped.png";
       link.href = dataUrl;
-      link.click()
+      link.click();
     } catch (error) {
-      console.log(`Erro Exporting imgae:`,error)
+      console.log(`Erro Exporting imgae:`, error);
     }
-  },[])
+  }, []);
   return (
     <div className="flex h-screen overflow-hidden">
-      <Leftsidebar onThemeChange={setTheme} onExport={handleExport} />
-      <Canvabox ref={canvaboxRef} theme={theme} />
+      <Leftsidebar
+        onThemeChange={setTheme}
+        theme={theme}
+        onExport={handleExport}
+        onTechStackChange={setTechStack}
+      />
+      <Canvabox 
+        ref={canvaboxRef} 
+        theme={theme} 
+        techStack={techstack} 
+      />
     </div>
   );
 }
