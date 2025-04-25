@@ -103,25 +103,6 @@ const Leftsidebar = React.memo(({ onThemeChange, onExport, onTechStackChange }: 
           </select>
         </div>
 
-        {/* Dimension Dropdown */}
-        <div className="mb-4">
-          <select
-            id="dimension"
-            className=" w-full bg-[#2a2a2a] text-white p-4 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-[#6184ec]"
-          >
-            <option value="">Default</option>
-            <option value="16:9">16:9 (1920×1080)</option>
-            <option value="3:2">3:2 (1920×1280)</option>
-            <option value="4:3">4:3 (1920×1440)</option>
-            <option value="5:4">5:4 (1920×1536)</option>
-            <option value="1:1">1:1 (1920×1920)</option>
-            <option value="4:5">4:5 (1080×1350)</option>
-            <option value="3:4">3:4 (1080×1440)</option>
-            <option value="2:3">2:3 (1080×1620)</option>
-            <option value="9:16">9:16 (1080×1920)</option>
-          </select>
-        </div>
-
         {/* Export Button */}
         <div className="mt-auto">
           <button
